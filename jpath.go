@@ -121,7 +121,7 @@ type Slice = []interface{}
 
 // GetMap is Get that returns a Map instead of interface{}
 func GetMap(o interface{}, path string) Map {
-	if v, e := Get(o, path); e != nil {
+	if v, e := Get(o, path); e == nil {
 		switch v.(type) {
 		case Map:
 			return v.(Map)
@@ -135,7 +135,7 @@ func GetMap(o interface{}, path string) Map {
 
 // GetSlice is Get that returns a Slice instead of interface{}
 func GetSlice(o interface{}, path string) Slice {
-	if v, e := Get(o, path); e != nil {
+	if v, e := Get(o, path); e == nil {
 		switch v.(type) {
 		case Slice:
 			return v.(Slice)
@@ -179,7 +179,7 @@ func GetTime(o interface{}, path string) time.Time {
 
 // GetString2 is GetString with custom default value
 func GetString2(o interface{}, path string, def string) string {
-	if v, e := Get(o, path); e != nil {
+	if v, e := Get(o, path); e == nil {
 		return econv.ToString(v)
 	} else {
 		return def
@@ -188,7 +188,7 @@ func GetString2(o interface{}, path string, def string) string {
 
 // GetFloat2 is GetFloat with custom default value
 func GetFloat2(o interface{}, path string, def float64) float64 {
-	if v, e := Get(o, path); e != nil {
+	if v, e := Get(o, path); e == nil {
 		return econv.ToFloat64(v)
 	} else {
 		return def
@@ -197,7 +197,7 @@ func GetFloat2(o interface{}, path string, def float64) float64 {
 
 // GetInt2 is GetInt with custom default value
 func GetInt2(o interface{}, path string, def int64) int64 {
-	if v, e := Get(o, path); e != nil {
+	if v, e := Get(o, path); e == nil {
 		return econv.ToInt64(v)
 	} else {
 		return def
@@ -206,7 +206,7 @@ func GetInt2(o interface{}, path string, def int64) int64 {
 
 // GetBool2 is GetBool with custom default value
 func GetBool2(o interface{}, path string, def bool) bool {
-	if v, e := Get(o, path); e != nil {
+	if v, e := Get(o, path); e == nil {
 		return econv.ToBool(v)
 	} else {
 		return def
@@ -215,7 +215,7 @@ func GetBool2(o interface{}, path string, def bool) bool {
 
 // GetUInt2 is GetUInt with custom default value
 func GetUInt2(o interface{}, path string, def uint64) uint64 {
-	if v, e := Get(o, path); e != nil {
+	if v, e := Get(o, path); e == nil {
 		return econv.ToUint64(v)
 	} else {
 		return def
@@ -224,7 +224,7 @@ func GetUInt2(o interface{}, path string, def uint64) uint64 {
 
 // GetTime2 is GetTime with custom default value
 func GetTime2(o interface{}, path string, def time.Time) time.Time {
-	if v, e := Get(o, path); e != nil {
+	if v, e := Get(o, path); e == nil {
 		return econv.ToTime(v)
 	} else {
 		return def
